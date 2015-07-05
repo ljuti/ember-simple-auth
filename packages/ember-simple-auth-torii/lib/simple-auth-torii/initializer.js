@@ -4,9 +4,11 @@ export default {
   name:   'simple-auth-torii',
   before: 'simple-auth',
   after:  'torii',
-  initialize: function(container, application) {
-    var torii         = container.lookup('torii:main');
+  initialize: function(registry, application) {
     var authenticator = Authenticator.create({ torii: torii });
     application.register('simple-auth-authenticator:torii', authenticator, { instantiate: false });
+  },
+  instanceInitializer: function(instance) {
+    var torii         = instance.container.lookup('torii:main');
   }
 };
