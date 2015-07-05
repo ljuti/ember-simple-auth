@@ -4,9 +4,11 @@ import setup from './setup';
 
 export default {
   name:       'simple-auth',
-  initialize: function(container, application) {
+  initialize: function(registry, application) {
+  },
+  instanceInitializer: function(instance) {
     var config = getGlobalConfig('simple-auth');
-    Configuration.load(container, config);
-    setup(container, application);
+    Configuration.load(instance.container, config);
+    setup(instance.container, application);
   }
 };
