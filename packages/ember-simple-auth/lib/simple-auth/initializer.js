@@ -5,6 +5,7 @@ import setup from './setup';
 export default {
   name:       'simple-auth',
   initialize: function(registry, application) {
+    application.register("simple-auth");
   },
   instanceInitializer: function(instance) {
     var config = getGlobalConfig('simple-auth');
